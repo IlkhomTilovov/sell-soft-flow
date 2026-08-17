@@ -77,16 +77,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Sell Soft — Web yechimlar" },
+      { title: "Sell Soft — Biznes uchun web yechimlar" },
       {
         name: "description",
         content:
-          "Sell Soft — biznesingiz uchun professional web saytlar, online kataloglar va admin panellar.",
+          "Professional web saytlar, online kataloglar, admin panellar va Telegram integratsiyalari. Sell Soft bizneslarni web orqali kuchaytiradi.",
       },
       { name: "author", content: "Sell Soft" },
       { property: "og:site_name", content: "Sell Soft" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Sell Soft — Biznes uchun web yechimlar" },
+      { name: "twitter:title", content: "Sell Soft — Biznes uchun web yechimlar" },
+      { property: "og:description", content: "Professional web saytlar, online kataloglar, admin panellar va Telegram integratsiyalari. Sell Soft bizneslarni web orqali kuchaytiradi." },
+      { name: "twitter:description", content: "Professional web saytlar, online kataloglar, admin panellar va Telegram integratsiyalari. Sell Soft bizneslarni web orqali kuchaytiradi." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/378abe8d71932ab937c1adc91ba36468/id-preview-4a70e5b3--23f4e6c1-a3af-4cdf-be33-31c598956c88.lovable.app-1786721989547.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/378abe8d71932ab937c1adc91ba36468/id-preview-4a70e5b3--23f4e6c1-a3af-4cdf-be33-31c598956c88.lovable.app-1786721989547.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -99,7 +105,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
   }),
   shellComponent: RootShell,
