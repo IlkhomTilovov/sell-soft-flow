@@ -1,7 +1,7 @@
 import { ArrowRight, ArrowDown, Check, X } from "lucide-react";
 import { Reveal, SectionLabel } from "./reveal";
-import mebelShot from "@/assets/project-mebelnazakaz.jpg";
-import adminShot from "@/assets/project-admin.jpg";
+import mebelShot from "@/assets/project-giometrie.png";
+import adminShot from "@/assets/project-giometrie-admin.png";
 
 export function ValueStrip() {
   return (
@@ -17,7 +17,7 @@ export function ValueStrip() {
             ))}
           </div>
           <p className="mt-4 max-w-2xl text-sm text-muted-foreground sm:text-base">
-            Biznesingiz uchun kerakli web infratuzilmani bitta joyda yaratamiz.
+            Mebel do'koningiz uchun kerakli onlayn katalog infratuzilmasini bitta joyda yaratamiz.
           </p>
         </Reveal>
       </div>
@@ -26,17 +26,17 @@ export function ValueStrip() {
 }
 
 const PROBLEMS = [
-  "Mijozlar mahsulotlarni birma-bir so'raydi",
-  "Narxlarni har bir mijozga alohida yuborasiz",
-  "Instagram'dan kelgan mijozlar yo'qolib ketadi",
-  "Biznesingiz uchun professional web platforma yo'q",
+  "Mijozlar mebellaringizni birma-bir so'raydi",
+  "Har bir mijozga narxni qo'lda yuborasiz",
+  "Instagram'dan kelgan mijozlar javob kutmay ketib qoladi",
+  "Mebel do'koningiz uchun professional onlayn katalog yo'q",
 ];
 
 const FLOW = [
-  "Instagram / Google / Direct",
-  "Web Site",
-  "Catalog / Information / Request",
-  "Telegram / Admin Panel",
+  "Instagram / Google / Bevosita",
+  "Veb-sayt",
+  "Katalog / Ma'lumot / So'rov",
+  "Telegram / Admin panel",
 ];
 
 export function ProblemSolution() {
@@ -44,7 +44,7 @@ export function ProblemSolution() {
     <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28">
       <Reveal>
         <h2 className="max-w-2xl text-[30px] leading-[1.08] font-extrabold sm:text-[44px]">
-          Mijozlar bilan ishlash hali ham qo'lda ketayaptimi?
+          Mebellaringizni hali ham Instagram DM orqali sotyapsizmi?
         </h2>
       </Reveal>
 
@@ -93,31 +93,113 @@ export function ProblemSolution() {
   );
 }
 
+const OFFER_STACK = [
+  {
+    t: "Onlayn katalog",
+    d: "Barcha mebellaringiz rasmi, narxi va o'lchami bilan — mijoz so'ramasdan o'zi ko'radi.",
+  },
+  {
+    t: "Admin panel",
+    d: "Narx o'zgartirish, yangi mebel qo'shish — dasturchisiz, o'zingiz boshqarasiz.",
+  },
+  {
+    t: "Telegram integratsiyasi",
+    d: "Har bir buyurtma darhol Telegram'ingizga tushadi — bironta mijoz yo'qolmaydi.",
+  },
+  {
+    t: "Boshlang'ich SEO",
+    d: "Google'da topilasiz — mijoz faqat Instagram'dan kelmaydi.",
+  },
+  {
+    t: "O'rgatish va qo'llanma",
+    d: "Tizimni topshirganda ishlatishni ham o'rgatamiz — savol bilan yolg'iz qolmaysiz.",
+  },
+];
+
+export function OfferStack() {
+  return (
+    <section id="taklif" className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28">
+      <Reveal>
+        <SectionLabel>Taklif</SectionLabel>
+        <h2 className="mt-5 max-w-2xl text-[30px] leading-[1.08] font-extrabold sm:text-[44px]">
+          «7 kunlik katalog» paketi — hammasi bitta narxda.
+        </h2>
+        <p className="mt-4 max-w-2xl text-sm text-muted-foreground sm:text-base">
+          Sayt, katalog, admin panel va integratsiyani alohida-alohida emas — do'koningiz uchun
+          tayyor ishlaydigan bitta tizim sifatida topshiramiz.
+        </p>
+      </Reveal>
+
+      <div className="mt-12 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
+        <div>
+          {OFFER_STACK.map((item, i) => (
+            <Reveal key={item.t} delay={i * 60}>
+              <div className="flex items-start gap-4 border-b border-border py-5">
+                <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-primary/10">
+                  <Check className="h-3.5 w-3.5 text-primary" />
+                </span>
+                <div>
+                  <p className="text-base font-semibold tracking-tight sm:text-lg">{item.t}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{item.d}</p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={120}>
+          <div className="flex h-full flex-col rounded-3xl border border-primary/25 bg-primary/[0.04] p-7 sm:p-9">
+            <SectionLabel>Kafolat</SectionLabel>
+            <p className="mt-5 text-xl leading-snug font-bold tracking-tight sm:text-2xl">
+              7 kunda topshirmasak — tayyor bo'lguncha bepul davom ettiramiz.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              Xavf bizda, natija sizda. Muddat kelishilgan kundan boshlab hisoblanadi va yozma
+              tarzda belgilanadi.
+            </p>
+            <div className="mt-auto pt-8">
+              <a
+                href="/video"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-foreground px-7 py-4 text-sm font-semibold text-background transition-colors hover:bg-primary"
+              >
+                Qanday ishlashini videoda ko'ring <ArrowRight className="h-4 w-4" />
+              </a>
+              <p className="mt-4 text-center text-xs text-muted-foreground">
+                2 daqiqalik video — keyin so'rovnomani to'ldirasiz.
+              </p>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 const SERVICES = [
   {
     n: "01",
-    t: "Web sayt",
-    d: "Biznesingizni internetda professional ko'rsatadigan zamonaviy web sayt.",
+    t: "Onlayn katalog",
+    d: "Barcha mebellaringiz rasmi, narxi va o'lchami bilan tartibli — mijoz o'zi ko'rib, o'zi tanlaydi.",
   },
   {
     n: "02",
-    t: "Online katalog",
-    d: "Mijozlar mahsulotlaringizni istalgan vaqtda qulay ko'rishi uchun.",
+    t: "Admin panel",
+    d: "Yangi mebel qo'shish, narx o'zgartirish, mavjudlikni belgilash — dasturchisiz, o'zingiz.",
   },
   {
     n: "03",
-    t: "Admin panel",
-    d: "Mahsulotlar, kontent va ma'lumotlarni o'zingiz boshqarishingiz uchun.",
+    t: "Telegram integratsiyasi",
+    d: "Yangi buyurtma darhol Telegram'ingizga tushadi — birorta ham mijozni qo'ldan boy bermaysiz.",
   },
   {
     n: "04",
-    t: "Telegram integratsiyasi",
-    d: "Yangi so'rov va buyurtmalar avtomatik sizga yetib kelishi uchun.",
+    t: "SEO va Google",
+    d: "\"Mebel do'koni\" qidirganda Google'da sizni topishadi — mijoz faqat Instagramdan kelmaydi.",
   },
   {
     n: "05",
-    t: "SEO va Google",
-    d: "Mijozlar sizning biznesingizni qidiruv tizimlari orqali topishi uchun.",
+    t: "Web sayt",
+    d: "Mijoz birinchi marta kirganda ishonch hosil qiladigan tez va zamonaviy dizayn.",
   },
 ];
 
@@ -128,7 +210,7 @@ export function Services() {
         <Reveal>
           <SectionLabel>Xizmatlar</SectionLabel>
           <h2 className="mt-5 max-w-2xl text-[30px] leading-[1.08] font-extrabold sm:text-[44px]">
-            Sayt emas. Biznesingiz uchun web yechim.
+            Sayt emas. Mebellaringizni sotadigan tizim.
           </h2>
         </Reveal>
 
@@ -152,15 +234,15 @@ export function Services() {
 
 const PROJECTS = [
   {
-    name: "MebelNazakaz",
-    desc: "Online mebel katalogi va buyurtma tizimi.",
+    name: "Giometrie",
+    desc: "Mijozlar Instagram DM o'rniga saytda mebellarni ko'rib, to'g'ridan-to'g'ri buyurtma beradi.",
     tags: ["Online katalog", "Admin panel", "Telegram integratsiyasi"],
     img: mebelShot,
   },
   {
-    name: "Biznes admin panel",
-    desc: "Mahsulot va so'rovlarni boshqarish uchun ichki web tizim.",
-    tags: ["Admin panel", "Avtomatlashtirish", "Hisobotlar"],
+    name: "Giometrie — Admin panel",
+    desc: "Toifalar, mahsulotlar va SEO holatini bitta joydan boshqaradi — dasturchisiz.",
+    tags: ["Admin panel", "Avtomatlashtirish", "SEO nazorati"],
     img: adminShot,
   },
 ];
@@ -171,8 +253,12 @@ export function Projects() {
       <Reveal>
         <SectionLabel>Ishlarimiz</SectionLabel>
         <h2 className="mt-5 max-w-2xl text-[30px] leading-[1.08] font-extrabold sm:text-[44px]">
-          Biz yaratgan web loyihalar.
+          Mebel biznesi uchun ishlagan tizim.
         </h2>
+        <p className="mt-4 max-w-2xl text-sm text-muted-foreground sm:text-base">
+          Giometrie — mana shunday katalog va admin panelni sizning do'koningiz uchun ham 7
+          kunda quramiz.
+        </p>
       </Reveal>
 
       <div className="mt-14 space-y-16 sm:space-y-24">
@@ -205,7 +291,7 @@ export function Projects() {
                   ))}
                 </div>
                 <a
-                  href="#boglanish"
+                  href="/ariza"
                   className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-primary"
                 >
                   Loyihani ko'rish <ArrowRight className="h-4 w-4" />
@@ -275,11 +361,11 @@ export function WhySellSoft() {
 }
 
 const STEPS = [
-  { n: "01", t: "Ariza qoldirasiz" },
-  { n: "02", t: "Biznesingizni o'rganamiz" },
-  { n: "03", t: "Taklif va reja tayyorlaymiz" },
-  { n: "04", t: "Dizayn va ishlab chiqish" },
-  { n: "05", t: "Sinov va ishga tushirish" },
+  { n: "01", day: "1-kun", t: "Ariza va suhbat" },
+  { n: "02", day: "2-kun", t: "Biznesingizni o'rganamiz" },
+  { n: "03", day: "3-kun", t: "Taklif va reja tayyorlaymiz" },
+  { n: "04", day: "4–6-kun", t: "Dizayn va ishlab chiqish" },
+  { n: "05", day: "7-kun", t: "Sinov va ishga tushirish" },
 ];
 
 export function Process() {
@@ -288,7 +374,7 @@ export function Process() {
       <Reveal>
         <SectionLabel>Jarayon</SectionLabel>
         <h2 className="mt-5 max-w-2xl text-[30px] leading-[1.08] font-extrabold sm:text-[44px]">
-          Oddiy jarayon. Aniq natija.
+          7 kunlik jarayon. Aniq natija.
         </h2>
       </Reveal>
 
@@ -302,7 +388,10 @@ export function Process() {
                 </span>
                 <span className="h-px flex-1 bg-border" />
               </div>
-              <p className="mt-6 text-base font-semibold tracking-tight">{s.t}</p>
+              <p className="mt-6 text-[11px] font-semibold tracking-[0.1em] text-primary uppercase">
+                {s.day}
+              </p>
+              <p className="mt-1.5 text-base font-semibold tracking-tight">{s.t}</p>
             </div>
           </Reveal>
         ))}
@@ -314,8 +403,8 @@ export function Process() {
 const PLANS = [
   {
     tier: "Start",
-    name: "Landing Page",
-    desc: "Professional online mavjudlik kerak bo'lgan bizneslar uchun.",
+    name: "Vitrina sayt",
+    desc: "Tez boshlamoqchi bo'lgan mebel ustaxonalari uchun sodda, 1–3 sahifali tanishtiruv sayti.",
     items: [
       "1–3 sahifa",
       "Responsive dizayn",
@@ -327,12 +416,12 @@ const PLANS = [
   },
   {
     tier: "Business",
-    name: "Corporate Website",
-    desc: "O'sib borayotgan biznes uchun to'liq web yechim.",
+    name: "Katalog + Admin panel",
+    desc: "Mebel do'koningiz uchun to'liq onlayn katalog va boshqaruv tizimi — 7 kunda ishga tushadi.",
     items: [
       "Ko'p sahifali sayt",
       "Admin panel",
-      "Portfolio yoki katalog",
+      "Onlayn mebel katalogi",
       "Telegram integratsiyasi",
       "Boshlang'ich SEO sozlash",
     ],
@@ -341,8 +430,8 @@ const PLANS = [
   },
   {
     tier: "Premium",
-    name: "Custom Web System",
-    desc: "Individual jarayonlar uchun maxsus web tizim.",
+    name: "Individual tizim",
+    desc: "Bir nechta filialga ega yoki maxsus jarayonli yirik mebel bizneslari uchun moslashtirilgan yechim.",
     items: [
       "Individual dizayn",
       "Kengaytirilgan katalog",
@@ -364,6 +453,10 @@ export function Pricing() {
           <h2 className="max-w-2xl text-[30px] leading-[1.08] font-extrabold sm:text-[44px]">
             Biznesingizga mos yechimni tanlang.
           </h2>
+          <p className="mt-4 flex items-center gap-2 text-sm font-medium text-muted-foreground">
+            <Check className="h-4 w-4 shrink-0 text-primary" />
+            Kelishilgan muddatda topshirmasak — loyiha tayyor bo'lguncha bepul davom ettiramiz.
+          </p>
         </Reveal>
 
         <div className="mt-12 grid gap-5 lg:grid-cols-3">
@@ -382,7 +475,7 @@ export function Pricing() {
                   </span>
                   {p.featured && (
                     <span className="rounded-full bg-primary px-3 py-1 text-[10px] font-bold tracking-[0.12em] text-primary-foreground uppercase">
-                      Eng ommabop
+                      Eng ommabop • 7 kun
                     </span>
                   )}
                 </div>
@@ -400,7 +493,7 @@ export function Pricing() {
                   ))}
                 </ul>
                 <a
-                  href="#boglanish"
+                  href="/ariza"
                   className={
                     p.featured
                       ? "mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-sm font-semibold text-background transition-colors hover:bg-primary"

@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ArizaRouteImport } from './routes/ariza'
+import { Route as VideoRouteImport } from './routes/video'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ArizaRoute = ArizaRouteImport.update({
+  id: '/ariza',
+  path: '/ariza',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VideoRoute = VideoRouteImport.update({
+  id: '/video',
+  path: '/video',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ariza': typeof ArizaRoute
+  '/video': typeof VideoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ariza': typeof ArizaRoute
+  '/video': typeof VideoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ariza': typeof ArizaRoute
+  '/video': typeof VideoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/ariza' | '/video'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/ariza' | '/video'
+  id: '__root__' | '/' | '/ariza' | '/video'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ArizaRoute: typeof ArizaRoute
+  VideoRoute: typeof VideoRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ariza': {
+      id: '/ariza'
+      path: '/ariza'
+      fullPath: '/ariza'
+      preLoaderRoute: typeof ArizaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/video': {
+      id: '/video'
+      path: '/video'
+      fullPath: '/video'
+      preLoaderRoute: typeof VideoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ArizaRoute: ArizaRoute,
+  VideoRoute: VideoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

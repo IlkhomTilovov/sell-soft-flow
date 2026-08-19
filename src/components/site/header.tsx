@@ -2,14 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const NAV = [
-  { label: "Bosh sahifa", href: "#top" },
-  { label: "Xizmatlar", href: "#xizmatlar" },
-  { label: "Ishlarimiz", href: "#ishlarimiz" },
-  { label: "Jarayon", href: "#jarayon" },
-  { label: "Narxlar", href: "#narxlar" },
-  { label: "Bog'lanish", href: "#boglanish" },
-];
+const NAV = [{ label: "Bosh sahifa", href: "/#top" }];
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -44,7 +37,7 @@ export function SiteHeader() {
           scrolled ? "h-14" : "h-20",
         )}
       >
-        <a href="#top" className="flex items-center gap-2.5">
+        <a href="/#top" className="flex items-center gap-2.5">
           <span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-foreground">
             <span className="h-2 w-2 rounded-sm bg-primary" />
           </span>
@@ -65,7 +58,7 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-2">
           <a
-            href="#boglanish"
+            href="/ariza"
             className="hidden items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-semibold text-background transition-colors hover:bg-primary sm:inline-flex"
           >
             Loyihani boshlash <ArrowRight className="h-4 w-4" />
@@ -96,7 +89,7 @@ export function SiteHeader() {
             ))}
           </nav>
           <a
-            href="#boglanish"
+            href="/ariza"
             onClick={() => setOpen(false)}
             className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-foreground px-6 py-4 text-base font-semibold text-background"
           >

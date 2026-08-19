@@ -1,118 +1,109 @@
-import { useEffect, useState } from "react";
-import { ArrowRight, BarChart3, Boxes, Send } from "lucide-react";
+import { Check, Gift, Play, Rocket, ShieldCheck, Zap } from "lucide-react";
 import { Reveal } from "./reveal";
 
+const OFFER_STACK = [
+  "Professional mahsulot katalogi",
+  "Narx, o'lcham va material tanlash",
+  "Telegram orqali buyurtma qabul qilish",
+  "O'zingiz boshqaradigan admin panel",
+];
+
 export function Hero() {
-  const [offset, setOffset] = useState(0);
-
-  useEffect(() => {
-    const onScroll = () => setOffset(Math.min(window.scrollY, 400));
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <section id="top" className="relative overflow-hidden pt-32 pb-16 sm:pt-40 sm:pb-24">
+    <section id="top" className="relative overflow-hidden pt-16 pb-16 sm:pt-24 sm:pb-24">
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1.05fr_1fr] lg:gap-10">
         <div>
           <Reveal>
             <span className="inline-flex items-center rounded-full border border-border bg-surface px-4 py-1.5 text-[11px] font-semibold tracking-[0.14em] text-muted-foreground uppercase">
-              Web yechimlar • Online katalog • Avtomatlashtirish
+              Mebel bizneslari uchun maxsus
             </span>
           </Reveal>
           <Reveal delay={80}>
-            <h1 className="mt-7 text-[38px] leading-[1.02] font-extrabold tracking-[-0.035em] sm:text-[56px] lg:text-[72px]">
-              Biznesingizni <span className="text-primary">web orqali</span> kuchaytiramiz.
+            <h1 className="mt-7 text-[34px] leading-[1.05] font-extrabold tracking-[-0.035em] sm:text-[48px] lg:text-[58px]">
+              Mebelingizni internetda soting.{" "}
+              <span className="text-primary">7 kunda tayyor onlayn do'kon.</span>
             </h1>
           </Reveal>
-          <Reveal delay={140}>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Professional web saytlar, online kataloglar va biznesingiz uchun raqamli yechimlar
-              yaratamiz.
+          <Reveal delay={120}>
+            <p className="mt-5 text-lg font-bold tracking-tight sm:text-xl">
+              Aks holda — pulingiz qaytadi.
             </p>
           </Reveal>
-          <Reveal delay={200}>
+          <Reveal delay={160}>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+              Mijoz mahsulotlarni ko'radi, narx va o'lchamlarni tanlaydi, buyurtma esa
+              to'g'ridan-to'g'ri sizga keladi.
+            </p>
+          </Reveal>
+          <Reveal delay={220}>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a
-                href="#boglanish"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-7 py-4 text-sm font-semibold text-background transition-colors hover:bg-primary"
+                href="/ariza"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-8 py-4 text-sm font-semibold text-background transition-colors hover:bg-primary"
               >
-                Loyihani boshlash <ArrowRight className="h-4 w-4" />
+                <Rocket className="h-4 w-4" /> Loyiham uchun taklif olish
               </a>
               <a
-                href="#ishlarimiz"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-7 py-4 text-sm font-semibold transition-colors hover:border-foreground"
+                href="/video"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-8 py-4 text-sm font-semibold transition-colors hover:border-foreground"
               >
-                Ishlarimizni ko'rish
+                <Play className="h-4 w-4" /> 2 daqiqalik videoni ko'rish
               </a>
             </div>
           </Reveal>
         </div>
 
-        <Reveal delay={240} className="relative">
-          <div
-            className="relative mx-auto h-[420px] w-full max-w-lg sm:h-[480px]"
-            style={{ transform: `translateY(${offset * -0.04}px)` }}
-          >
-            <div className="absolute inset-x-4 top-4 rounded-3xl border border-border bg-card p-5 shadow-lift">
-              <div className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-border" />
-                <span className="h-2 w-2 rounded-full bg-border" />
-                <span className="h-2 w-2 rounded-full bg-border" />
-                <span className="ml-3 h-5 flex-1 rounded-md bg-surface" />
-              </div>
-              <div className="mt-5 h-3 w-2/3 rounded-full bg-foreground/85" />
-              <div className="mt-2.5 h-2.5 w-1/2 rounded-full bg-border" />
-              <div className="mt-5 grid grid-cols-3 gap-2.5">
-                {[0, 1, 2].map((i) => (
-                  <div key={i} className="rounded-xl border border-border p-2.5">
-                    <div className="h-12 rounded-lg bg-surface" />
-                    <div className="mt-2 h-1.5 w-3/4 rounded-full bg-border" />
-                    <div className="mt-1.5 h-1.5 w-1/2 rounded-full bg-primary/40" />
-                  </div>
-                ))}
-              </div>
-              <div className="mt-4 h-8 w-32 rounded-full bg-primary" />
-            </div>
+        <Reveal delay={240}>
+          <div className="rounded-3xl border border-border bg-card p-7 shadow-lift sm:p-9">
+            <span className="text-xs font-semibold tracking-[0.18em] text-primary uppercase">
+              Siz olasiz
+            </span>
+            <ul className="mt-6 space-y-4">
+              {OFFER_STACK.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-sm font-medium sm:text-base">
+                  <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-primary/10">
+                    <Check className="h-3.5 w-3.5 text-primary" />
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
 
-            <div
-              className="absolute right-0 bottom-24 w-56 rounded-2xl border border-border bg-card p-4 shadow-lift"
-              style={{ transform: `translateY(${offset * 0.05}px)` }}
-            >
-              <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
-                <BarChart3 className="h-4 w-4 text-primary" /> Dashboard
-              </div>
-              <div className="mt-4 flex h-16 items-end gap-1.5">
-                {[35, 60, 45, 80, 55, 95].map((h, i) => (
-                  <span
-                    key={i}
-                    className="flex-1 rounded-sm bg-primary/20 last:bg-primary"
-                    style={{ height: `${h}%` }}
-                  />
-                ))}
+            <div className="mt-7 flex items-center gap-5 rounded-2xl bg-foreground p-5 text-background">
+              <p className="text-4xl leading-none font-extrabold tracking-tight sm:text-5xl">
+                7<span className="ml-1 text-lg font-bold sm:text-xl">kun</span>
+              </p>
+              <div>
+                <p className="flex items-center gap-1.5 text-xs font-bold tracking-[0.14em] text-primary uppercase">
+                  <Zap className="h-3.5 w-3.5" /> Tayyor
+                </p>
+                <p className="mt-1 text-sm font-medium opacity-80">
+                  Saytingiz tayyor va ishlashga topshiriladi
+                </p>
               </div>
             </div>
 
-            <div
-              className="absolute bottom-4 left-0 w-60 rounded-2xl border border-border bg-card p-4 shadow-lift"
-              style={{ transform: `translateY(${offset * 0.08}px)` }}
-            >
-              <div className="flex items-start gap-3">
-                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-primary/10">
-                  <Send className="h-4 w-4 text-primary" />
-                </span>
-                <div className="min-w-0">
-                  <p className="truncate text-[13px] font-semibold">Yangi so'rov</p>
-                  <p className="truncate text-xs text-muted-foreground">
-                    Telegram orqali yetib keldi
-                  </p>
-                </div>
-              </div>
+            <div className="mt-4 flex items-start gap-3 rounded-2xl border border-border bg-surface p-4">
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary/10">
+                <Gift className="h-4 w-4 text-primary" />
+              </span>
+              <p className="text-sm font-medium sm:text-base">
+                <span className="font-bold text-primary">BONUS:</span> 1 oy bepul texnik yordam
+              </p>
             </div>
 
-            <div className="absolute top-0 right-2 flex items-center gap-2 rounded-full border border-border bg-card px-3.5 py-2 text-xs font-semibold shadow-soft">
-              <Boxes className="h-4 w-4 text-primary" /> Katalog
+            <div className="mt-4 rounded-2xl border border-primary/25 bg-primary/[0.05] p-5">
+              <p className="flex items-center gap-2 text-xs font-bold tracking-[0.14em] text-primary uppercase">
+                <ShieldCheck className="h-4 w-4" /> Kafolat
+              </p>
+              <p className="mt-2 text-sm leading-relaxed font-medium sm:text-base">
+                7 kunda tayyor bo'lmasa — pulingiz to'liq qaytariladi.
+              </p>
             </div>
+
+            <p className="mt-5 text-center text-xs text-muted-foreground sm:text-sm">
+              Faqat 5 ta mebel biznesi bilan ishlaymiz
+            </p>
           </div>
         </Reveal>
       </div>

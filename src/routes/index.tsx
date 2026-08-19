@@ -1,16 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SiteHeader } from "@/components/site/header";
 import { Hero } from "@/components/site/hero";
-import {
-  ValueStrip,
-  ProblemSolution,
-  Services,
-  Projects,
-  WhySellSoft,
-  Process,
-  Pricing,
-} from "@/components/site/sections";
-import { ContactSection, SiteFooter } from "@/components/site/contact";
 
 const TITLE = "Sell Soft — Biznes uchun web yechimlar";
 const DESC =
@@ -46,19 +35,9 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="min-h-screen scroll-smooth bg-background">
-      <SiteHeader />
       <main>
         <Hero />
-        <ValueStrip />
-        <ProblemSolution />
-        <Services />
-        <Projects />
-        <WhySellSoft />
-        <Process />
-        <Pricing />
-        <ContactSection />
       </main>
-      <SiteFooter />
     </div>
   );
 }
